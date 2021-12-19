@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 06 déc. 2021 à 17:56
+-- Généré le : Dim 19 déc. 2021 à 16:38
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `acteur` (
-  `Id` int(4) NOT NULL,
-  `Nom` varchar(20) NOT NULL,
-  `Prenom` varchar(20) DEFAULT NULL,
-  `Naissance` date DEFAULT NULL,
-  `Deces` date DEFAULT NULL
+                          `Id` int(4) NOT NULL,
+                          `Nom` varchar(20) NOT NULL,
+                          `Prenom` varchar(20) DEFAULT NULL,
+                          `Naissance` date DEFAULT NULL,
+                          `Deces` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -55,9 +55,9 @@ INSERT INTO `acteur` (`Id`, `Nom`, `Prenom`, `Naissance`, `Deces`) VALUES
 --
 
 CREATE TABLE `categorie` (
-  `Id` varchar(2) NOT NULL,
-  `Libelle` varchar(20) NOT NULL,
-  `Image` varchar(50) NOT NULL
+                             `Id` varchar(2) NOT NULL,
+                             `Libelle` varchar(20) NOT NULL,
+                             `Image` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -77,16 +77,16 @@ INSERT INTO `categorie` (`Id`, `Libelle`, `Image`) VALUES
 --
 
 CREATE TABLE `film` (
-  `Id` int(4) NOT NULL,
-  `Titre` varchar(30) NOT NULL,
-  `Duree` int(3) NOT NULL,
-  `Datesortie` date NOT NULL,
-  `Budget` int(8) NOT NULL,
-  `Recette` int(8) NOT NULL,
-  `Norea` int(2) NOT NULL,
-  `Catid` varchar(2) NOT NULL,
-  `image` varchar(100) NOT NULL,
-  `note` decimal(10,1) NOT NULL
+                        `Id` int(4) NOT NULL,
+                        `Titre` varchar(30) NOT NULL,
+                        `Duree` int(3) NOT NULL,
+                        `Datesortie` date NOT NULL,
+                        `Budget` int(8) NOT NULL,
+                        `Recette` int(8) NOT NULL,
+                        `Norea` int(2) NOT NULL,
+                        `Catid` varchar(2) NOT NULL,
+                        `image` varchar(100) NOT NULL,
+                        `note` decimal(10,1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -102,38 +102,13 @@ INSERT INTO `film` (`Id`, `Titre`, `Duree`, `Datesortie`, `Budget`, `Recette`, `
 -- --------------------------------------------------------
 
 --
--- Structure de la table `learner`
---
-
-CREATE TABLE `learner` (
-  `id` int(11) NOT NULL,
-  `surname` char(25) DEFAULT NULL,
-  `forname` char(25) DEFAULT NULL,
-  `salt` char(100) DEFAULT NULL,
-  `email` char(50) DEFAULT NULL,
-  `mdp` char(80) DEFAULT NULL,
-  `role` char(25) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `learner`
---
-
-INSERT INTO `learner` (`id`, `surname`, `forname`, `salt`, `email`, `mdp`, `role`) VALUES
-(1, 'Doe', 'John', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'john.doe@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'admin'),
-(15, 'Felix', 'Goubin', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'fabien.goubin@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'apprenant'),
-(16, 'Tanguy', 'Geffrault', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'felix.geffrault@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'apprenant');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `personnage`
 --
 
 CREATE TABLE `personnage` (
-  `Idfilm` int(4) NOT NULL,
-  `Idact` int(4) NOT NULL,
-  `Personnagenom` varchar(30) NOT NULL
+                              `Idfilm` int(4) NOT NULL,
+                              `Idact` int(4) NOT NULL,
+                              `Personnagenom` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -157,9 +132,9 @@ INSERT INTO `personnage` (`Idfilm`, `Idact`, `Personnagenom`) VALUES
 --
 
 CREATE TABLE `realisateur` (
-  `Id` int(2) NOT NULL,
-  `Nom` varchar(20) NOT NULL,
-  `Prenom` varchar(20) NOT NULL
+                               `Id` int(2) NOT NULL,
+                               `Nom` varchar(20) NOT NULL,
+                               `Prenom` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -172,6 +147,32 @@ INSERT INTO `realisateur` (`Id`, `Nom`, `Prenom`) VALUES
 (3, 'Besson', 'Luc'),
 (4, 'Besnard', 'Eric');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+                               `id` int(11) NOT NULL,
+                               `surname` char(25) DEFAULT NULL,
+                               `forname` char(25) DEFAULT NULL,
+                               `salt` char(100) DEFAULT NULL,
+                               `email` char(50) DEFAULT NULL,
+                               `mdp` char(80) DEFAULT NULL,
+                               `role` char(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `surname`, `forname`, `salt`, `email`, `mdp`, `role`) VALUES
+(1, 'Doe', 'John', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'john.doe@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'admin'),
+(15, 'Felix', 'Goubin', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'fabien.goubin@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'apprenant'),
+(16, 'Tanguy', 'Geffrault', 'nC+LkxSBRR5r/uSLrtB7MB7laCpEWRs5uUpLm3N2JqA=', 'felix.geffrault@email.com', 'WFGexk0cocZHcs7qJuPawA==', 'apprenant'),
+(17, 'Dojhfge', NULL, 'HnPh+cHbMHVtxeWMjJFW3BAhStRYc3w8L81W9W7CqP0=', 'ee', '/dwL4lSVgiOBbmT8xgOiyA==', 'apprenant');
+
 --
 -- Index pour les tables déchargées
 --
@@ -180,33 +181,27 @@ INSERT INTO `realisateur` (`Id`, `Nom`, `Prenom`) VALUES
 -- Index pour la table `acteur`
 --
 ALTER TABLE `acteur`
-  ADD PRIMARY KEY (`Id`);
+    ADD PRIMARY KEY (`Id`);
 
 --
 -- Index pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`Id`);
+    ADD PRIMARY KEY (`Id`);
 
 --
 -- Index pour la table `film`
 --
 ALTER TABLE `film`
-  ADD PRIMARY KEY (`Id`),
+    ADD PRIMARY KEY (`Id`),
   ADD KEY `NoRea` (`Norea`),
   ADD KEY `CodeCat` (`Catid`);
-
---
--- Index pour la table `learner`
---
-ALTER TABLE `learner`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `personnage`
 --
 ALTER TABLE `personnage`
-  ADD PRIMARY KEY (`Idfilm`,`Idact`),
+    ADD PRIMARY KEY (`Idfilm`,`Idact`),
   ADD KEY `NoFilm` (`Idfilm`),
   ADD KEY `NoAct` (`Idact`);
 
@@ -214,7 +209,13 @@ ALTER TABLE `personnage`
 -- Index pour la table `realisateur`
 --
 ALTER TABLE `realisateur`
-  ADD PRIMARY KEY (`Id`);
+    ADD PRIMARY KEY (`Id`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -224,25 +225,25 @@ ALTER TABLE `realisateur`
 -- AUTO_INCREMENT pour la table `acteur`
 --
 ALTER TABLE `acteur`
-  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+    MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `film`
 --
 ALTER TABLE `film`
-  MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `learner`
---
-ALTER TABLE `learner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+    MODIFY `Id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `realisateur`
 --
 ALTER TABLE `realisateur`
-  MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+    MODIFY `Id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Contraintes pour les tables déchargées
@@ -252,14 +253,14 @@ ALTER TABLE `realisateur`
 -- Contraintes pour la table `film`
 --
 ALTER TABLE `film`
-  ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`NoRea`) REFERENCES `realisateur` (`Id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`Norea`) REFERENCES `realisateur` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `film_ibfk_2` FOREIGN KEY (`Catid`) REFERENCES `categorie` (`Id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `personnage`
 --
 ALTER TABLE `personnage`
-  ADD CONSTRAINT `personnage_ibfk_1` FOREIGN KEY (`Idfilm`) REFERENCES `film` (`Id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `personnage_ibfk_1` FOREIGN KEY (`Idfilm`) REFERENCES `film` (`Id`) ON DELETE CASCADE,
   ADD CONSTRAINT `personnage_ibfk_2` FOREIGN KEY (`Idact`) REFERENCES `acteur` (`Id`) ON DELETE CASCADE;
 COMMIT;
 
