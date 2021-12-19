@@ -46,6 +46,11 @@ public class FilmController {
         return this.filmService.getFilmByNoteGreaterOrEqual(note);
     }
 
+    @GetMapping("/getFilmsByActeur/{id}")
+    public List<FilmEntity> getFilmsByActeur(@PathVariable int id) {
+        return this.filmService.getFilmsByActeur(id);
+    }
+
     @GetMapping("/getFilmByName/{titre}")
     public FilmEntity getFilmByTitre(@PathVariable String titre) {
         return this.filmService.getFilmByName(titre);

@@ -43,6 +43,12 @@ public class ActeurController {
         this.acteurService.modifierActeur(acteurEntity);
     }
 
+    @GetMapping("/getActeurByFilm/{id}")
+    public List<ActeurEntity> getActeurParFilm(@PathVariable int id) {
+        return this.acteurService.getActeursParFilm(id);
+
+    }
+
     @PostMapping("/ajout")
     @ResponseBody
     public void ajoutClient(@RequestBody ActeurEntity acteurEntity) {

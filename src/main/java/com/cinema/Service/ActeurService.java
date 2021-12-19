@@ -2,17 +2,22 @@ package com.cinema.Service;
 
 
 import com.cinema.Domain.ActeurEntity;
+import com.cinema.Domain.PersonnageEntity;
 import com.cinema.Repository.ActeurRepository;
+import com.cinema.Repository.PersonnageRepository;
 import com.cinema.mesExceptions.MonException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ActeurService {
 
     private ActeurRepository acteurRepository;
+    @Autowired
+    private PersonnageRepository personnageRepository;
 
     @Autowired
     public ActeurService(ActeurRepository acteurRepository) {
@@ -52,5 +57,15 @@ public class ActeurService {
     public void supprimerActeur(int id) {
         ActeurEntity acteurEntity = this.getUnActeur(id);
         this.acteurRepository.delete(acteurEntity);
+    }
+
+    public List<ActeurEntity> getActeursParFilm(int id) {
+        List<PersonnageEntity> personnageEntities = this.personnageRepository.findByNoFilm(id);
+        List<ActeurEntity> acteurEntities = new ArrayList<>();
+        for (PersonnageEntity personnageEntity : personnageEntities) {
+            ActeurEntity acteurEntity = this.getUnActeur(personnageEntity.getNoAct());
+            acteurEntities.add(acteurEntity);
+        }
+        return acteurEntities;
     }
 }
