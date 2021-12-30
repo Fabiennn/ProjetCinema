@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : Dim 19 déc. 2021 à 16:38
+-- Généré le : jeu. 30 déc. 2021 à 15:33
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -32,21 +32,22 @@ CREATE TABLE `acteur` (
                           `Nom` varchar(20) NOT NULL,
                           `Prenom` varchar(20) DEFAULT NULL,
                           `Naissance` date DEFAULT NULL,
-                          `Deces` date DEFAULT NULL
+                          `Deces` date DEFAULT NULL,
+                          `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `acteur`
 --
 
-INSERT INTO `acteur` (`Id`, `Nom`, `Prenom`, `Naissance`, `Deces`) VALUES
-(1, 'Reno', 'Jean', '1948-07-30', NULL),
-(2, 'Portman', 'Natalie', '1981-06-09', NULL),
-(3, 'Dujardin', 'Jean', '1972-06-19', NULL),
-(4, 'Bourvil', 'André', '1917-07-27', '1970-09-23'),
-(5, 'De Funes', 'Louis', '1914-08-31', '1983-01-27'),
-(6, 'Anglade', 'Jean-Hugues', '1955-07-29', NULL),
-(10, 'Goubin', 'Fabien', '1999-05-09', NULL);
+INSERT INTO `acteur` (`Id`, `Nom`, `Prenom`, `Naissance`, `Deces`, `image`) VALUES
+(1, 'Reno', 'Jean', '1948-07-30', NULL, ''),
+(2, 'Portman', 'Natalie', '1981-06-09', NULL, ''),
+(3, 'Dujardin', 'Jean', '1972-06-19', NULL, ''),
+(4, 'Bourvil', 'André', '1917-07-27', '1970-09-23', ''),
+(5, 'De Funes', 'Louis', '1914-08-31', '1983-01-27', ''),
+(6, 'Anglade', 'Jean-Hugues', '1955-07-29', NULL, ''),
+(10, 'Goubin', 'Fabien', '1999-05-09', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -86,18 +87,19 @@ CREATE TABLE `film` (
                         `Norea` int(2) NOT NULL,
                         `Catid` varchar(2) NOT NULL,
                         `image` varchar(100) NOT NULL,
-                        `note` decimal(10,1) NOT NULL
+                        `note` decimal(10,1) NOT NULL,
+                        `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `film`
 --
 
-INSERT INTO `film` (`Id`, `Titre`, `Duree`, `Datesortie`, `Budget`, `Recette`, `Norea`, `Catid`, `image`, `note`) VALUES
-(1, 'Léon', 110, '1994-04-14', 17531000, 69250000, 3, 'PO', '', '3.1'),
-(2, 'Cash', 100, '2008-04-23', 18340000, 60340000, 4, 'PO', '', '6.5'),
-(3, 'La grande vadrouille', 132, '1966-12-01', 7227000, 51258000, 2, 'AC', '', '9.7'),
-(4, 'Goubin', 100, '1999-05-09', 54545, 1000, 3, 'PO', '', '3.4');
+INSERT INTO `film` (`Id`, `Titre`, `Duree`, `Datesortie`, `Budget`, `Recette`, `Norea`, `Catid`, `image`, `note`, `description`) VALUES
+(1, 'Léon', 110, '1994-04-14', 17531000, 69250000, 3, 'PO', '', '3.1', ''),
+(2, 'Cash', 100, '2008-04-23', 18340000, 60340000, 4, 'PO', '', '6.5', ''),
+(3, 'La grande vadrouille', 132, '1966-12-01', 7227000, 51258000, 2, 'AC', '', '9.7', ''),
+(4, 'Goubin', 100, '1999-05-09', 54545, 1000, 3, 'PO', '', '3.4', '');
 
 -- --------------------------------------------------------
 
