@@ -13,6 +13,7 @@ public class ActeurEntity {
     private String prenom;
     private Date naissance;
     private Date deces;
+    private String image;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,5 +64,15 @@ public class ActeurEntity {
 
     public void setDeces(Date dateDeces) {
         this.deces = dateDeces;
+    }
+
+    @Basic
+    @Column(name = "image", nullable = false, length = 100)
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

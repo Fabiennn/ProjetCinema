@@ -22,6 +22,7 @@ public class FilmEntity {
     private String codeCat;
     private String image;
     private Float note;
+    private String description;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -124,4 +125,9 @@ public class FilmEntity {
         this.note = note;
     }
 
+    @Basic
+    @Column(name = "description", nullable = false, length = 1000)
+    public String getDescription() {return description;}
+
+    public void setDescription(String description) {this.description = description;}
 }
