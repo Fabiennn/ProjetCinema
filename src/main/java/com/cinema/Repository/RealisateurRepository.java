@@ -10,4 +10,6 @@ public interface RealisateurRepository extends JpaRepository<RealisateurEntity, 
 
     public RealisateurEntity findByPrenom(String prenom);
     public RealisateurEntity findByNom(String nom);
+
+    RealisateurEntity findById(int id);
 }

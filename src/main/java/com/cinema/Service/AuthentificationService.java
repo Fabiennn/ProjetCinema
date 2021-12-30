@@ -30,7 +30,7 @@ public class AuthentificationService {
                 // on récupère le mot de passe
                 String mdp = unUtilisateur.getMdp();
                 // on génère le mot de passe avec les données de connexion
-                byte[] salt = MonMotPassHash.transformeEnBytes(unUtilisateur.getSalt());
+                byte[] salt = MonMotPassHash.transformeEnBytes(sel);
                 char[] pwd_char = MonMotPassHash.converttoCharArray(pwd);
                 byte[] monpwdCo = MonMotPassHash.generatePasswordHash(pwd_char, salt);
                 // on récupère le mot de passe enregistré

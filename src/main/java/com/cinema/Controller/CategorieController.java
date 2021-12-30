@@ -32,4 +32,10 @@ public class CategorieController {
     public CategorieEntity getCategorieByLibelle(@PathVariable(value = "libelle") String libelle) {
         return this.categorieService.getByLibelle(libelle);
     }
+
+    @PostMapping("/ajout")
+    @ResponseBody
+    public void ajouterCategorie(@RequestBody CategorieEntity categorieEntity) {
+        this.categorieService.ajouterCategorie(categorieEntity);
+    }
 }

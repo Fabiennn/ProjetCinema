@@ -2,6 +2,7 @@ package com.cinema.Service;
 
 
 import com.cinema.Domain.CategorieEntity;
+import com.cinema.Domain.FilmEntity;
 import com.cinema.Repository.ActeurRepository;
 import com.cinema.Repository.CategorieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,8 @@ public class CategorieService {
     }
 
 
+    public void ajouterCategorie(CategorieEntity categorieEntity) {
+        this.categorieRepository.save(categorieEntity);
+    }
 
 }

@@ -32,7 +32,7 @@ public class RealisateurService {
     }
 
     public RealisateurEntity getRealById(int id) {
-        return this.realisateurRepository.getById(id);
+        return this.realisateurRepository.findById(id);
     }
 
     public void delete(int id) {
