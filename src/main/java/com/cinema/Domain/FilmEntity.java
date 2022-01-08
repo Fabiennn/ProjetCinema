@@ -106,7 +106,7 @@ public class FilmEntity {
     }
 
     @Basic
-    @Column(name = "image", nullable = false, length = 100)
+    @Column(name = "image", nullable = true)
     public String getImage() {
         return image;
     }

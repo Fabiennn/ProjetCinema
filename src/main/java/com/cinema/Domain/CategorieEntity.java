@@ -12,7 +12,6 @@ public class CategorieEntity {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id", nullable = false, length = 2)
     public String getId() {
         return id;

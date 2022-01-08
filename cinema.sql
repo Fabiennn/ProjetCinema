@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 30 déc. 2021 à 15:33
+-- Généré le : sam. 08 jan. 2022 à 19:00
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.1
 
@@ -33,7 +33,7 @@ CREATE TABLE `acteur` (
                           `Prenom` varchar(20) DEFAULT NULL,
                           `Naissance` date DEFAULT NULL,
                           `Deces` date DEFAULT NULL,
-                          `image` varchar(100) NOT NULL
+                          `image` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -57,19 +57,19 @@ INSERT INTO `acteur` (`Id`, `Nom`, `Prenom`, `Naissance`, `Deces`, `image`) VALU
 
 CREATE TABLE `categorie` (
                              `Id` varchar(2) NOT NULL,
-                             `Libelle` varchar(20) NOT NULL,
-                             `Image` varchar(50) NOT NULL
+                             `Libelle` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `categorie`
 --
 
-INSERT INTO `categorie` (`Id`, `Libelle`, `Image`) VALUES
-('AC', 'Action', 'https://upload.wikimedia.org/wikipedia/commons/thu'),
-('CO', 'Comédie', 'https://upload.wikimedia.org/wikipedia/commons/thu'),
-('PO', 'Policier', 'https://upload.wikimedia.org/wikipedia/commons/thu'),
-('WE', 'Western', 'https://upload.wikimedia.org/wikipedia/commons/5/5');
+INSERT INTO `categorie` (`Id`, `Libelle`) VALUES
+('AC', 'Action'),
+('CO', 'Comédie'),
+('HO', 'Horreur'),
+('PO', 'Policier'),
+('WE', 'Western');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ CREATE TABLE `film` (
                         `Recette` int(8) NOT NULL,
                         `Norea` int(2) NOT NULL,
                         `Catid` varchar(2) NOT NULL,
-                        `image` varchar(100) NOT NULL,
+                        `image` longtext NOT NULL,
                         `note` decimal(10,1) NOT NULL,
                         `description` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
