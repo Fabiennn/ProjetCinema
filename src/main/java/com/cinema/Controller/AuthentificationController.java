@@ -1,6 +1,5 @@
 package com.cinema.Controller;
 
-
 import com.cinema.Domain.LoginParam;
 import com.cinema.Domain.UtilisateurEntity;
 import com.cinema.Service.AuthentificationService;
@@ -18,7 +17,6 @@ public class AuthentificationController {
     @PostMapping("/login")
     @ResponseBody
     public UtilisateurEntity controleLogin(@RequestBody LoginParam loginParam) throws Exception {
-
 
         return authentificationService.authentification(loginParam);
     }

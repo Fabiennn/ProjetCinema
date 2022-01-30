@@ -5,8 +5,8 @@ import com.cinema.Domain.UtilisateurEntity;
 import com.cinema.Repository.UtilisateurRepository;
 import com.cinema.mesExceptions.MonException;
 import com.cinema.utilitaires.MonMotPassHash;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class AuthentificationService {

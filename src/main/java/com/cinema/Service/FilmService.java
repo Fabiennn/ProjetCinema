@@ -52,7 +52,8 @@ public class FilmService {
     }
 
     public void update(FilmEntity filmEntity) {
-        this.filmRepository.save(filmEntity);
+        this.filmRepository.updateFilm(filmEntity.getId(), filmEntity.getTitre(),filmEntity.getDuree(),filmEntity.getDateSortie(),filmEntity.getBudget()
+        ,filmEntity.getRecette(),filmEntity.getNoRea(),filmEntity.getCodeCat(),filmEntity.getImage(),filmEntity.getNote(),filmEntity.getDescription());
     }
 
     public void delete(int id) {
