@@ -21,8 +21,8 @@ public interface RealisateurRepository extends JpaRepository<RealisateurEntity, 
             " WHERE r.noRea = :noRea")
 
     public int  updateRea(@Param("noRea") int noRea,
-                           @Param("nom") String nom,
-                           @Param("prenom") String prenom);
+                          @Param("nom") String nom,
+                          @Param("prenom") String prenom);
 
     public RealisateurEntity findByPrenom(String prenom);
     public RealisateurEntity findByNom(String nom);

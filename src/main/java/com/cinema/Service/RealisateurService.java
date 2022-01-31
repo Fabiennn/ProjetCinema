@@ -31,6 +31,10 @@ public class RealisateurService {
         this.realisateurRepository.updateRea(realisateurEntity.getNoRea(),realisateurEntity.getNom(),realisateurEntity.getPrenom());
     }
 
+    public void ajout(RealisateurEntity realisateurEntity){
+        this.realisateurRepository.save(realisateurEntity);
+    }
+
     public RealisateurEntity getRealById(int id) {
         return this.realisateurRepository.findById(id);
     }

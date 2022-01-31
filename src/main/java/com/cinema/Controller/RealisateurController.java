@@ -29,7 +29,7 @@ public class RealisateurController {
 
     @PostMapping("/ajout")
     public void ajouter(@RequestBody RealisateurEntity realisateurEntity) {
-        this.realisateurService.update(realisateurEntity);
+        this.realisateurService.ajout(realisateurEntity);
     }
 
     @DeleteMapping("/delete/{id}")
