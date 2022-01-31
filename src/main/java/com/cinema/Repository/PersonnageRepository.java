@@ -12,4 +12,6 @@ public interface PersonnageRepository extends JpaRepository<PersonnageEntity, In
 
     public List<PersonnageEntity> findByNoFilm(int noFilm);
 
+    public PersonnageEntity findByNoFilmAndNoAct(int noFilm, int noAct);
+
 }

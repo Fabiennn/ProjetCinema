@@ -30,4 +30,9 @@ public class PersonnageService {
     public List<PersonnageEntity> getPersonnageByActeur(int noRea) {
         return this.personnageRepository.findByNoAct(noRea);
     }
+
+    public void delete(int idFilm, int idAct) {
+        PersonnageEntity personnageEntity = this.personnageRepository.findByNoFilmAndNoAct(idFilm, idAct);
+        this.personnageRepository.delete(personnageEntity);
+    }
 }

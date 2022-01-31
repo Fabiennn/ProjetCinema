@@ -41,4 +41,9 @@ public class PersonnageController {
     public List<PersonnageEntity> getPersonnagesByActeur(@PathVariable int id) {
         return this.personnageService.getPersonnageByActeur(id);
     }
+
+    @DeleteMapping("/delete/{idFilm}/{idAct}")
+    public void delete(@PathVariable int idFilm, @PathVariable int idAct) {
+        this.personnageService.delete(idFilm, idAct);
+    }
 }
